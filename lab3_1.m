@@ -1,0 +1,13 @@
+clear;clc;
+n=100;
+a=rand*10-5;
+b=rand*10-5;
+c=3;
+x=randn(1,n)*3+2;
+y=a*x+b+randn(1,n)*c;
+plot(x,y,'.');
+ea=sum((x-mean(x)).*(y-mean(y)))/sum((x-mean(x)).^2);
+eb=(mean(y)-ea*mean(x));
+plot(x,y,'.',x,ea*x+eb);
+mse=mean((y-ea*x-eb).^2);
+rmse=mse^.5;
